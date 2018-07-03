@@ -1,5 +1,6 @@
 package org.androidtown.holgabun;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
-public class PopupActivity extends AppCompatActivity {
+public class PopupActivity extends Activity {
     TextView txtText;
 
     @Override
@@ -32,7 +33,7 @@ public class PopupActivity extends AppCompatActivity {
         //데이터 전달하기
         Intent intent = new Intent();
         intent.putExtra("result", "Close Popup");
-        setResult(RESULT_OK, intent);
+        setResult(Activity.RESULT_OK, intent);
 
         //액티비티(팝업) 닫기
         finish();

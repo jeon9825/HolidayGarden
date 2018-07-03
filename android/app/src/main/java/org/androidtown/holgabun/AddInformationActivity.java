@@ -1,5 +1,6 @@
 package org.androidtown.holgabun;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.androidtown.holgabun.R;
 import org.w3c.dom.Text;
@@ -47,10 +49,10 @@ public class AddInformationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == Activity.RESULT_OK) {
                 //데이터 받기
                 String result = data.getStringExtra("result");
-                txtResult.setText(result);
+                Toast.makeText(AddInformationActivity.this,result,Toast.LENGTH_LONG).show();
             }
         }
     }

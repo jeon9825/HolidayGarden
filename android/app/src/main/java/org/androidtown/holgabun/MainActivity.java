@@ -16,19 +16,19 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*
+
     EditText editText;
     Button button;
     private static final String TAG = "TestActivity";
     private HttpConnection httpConn = HttpConnection.getInstance();
 
-*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
+
         button = (Button)findViewById(R.id.su);
         editText = (EditText)findViewById(R.id.login);
 
@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
 // 파라미터 2개와 미리정의해논 콜백함수를 매개변수로 전달하여 호출
                 httpConn.requestWebServer("10","데이터2", callback);
             }
-        }.start();;
-    }
+        }.start();    }
 
     private final Callback callback = new Callback() {
         @Override
@@ -63,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "서버에서 응답한 Body:" + body);
         }
     };
-    */
-    }
+
+
 }
