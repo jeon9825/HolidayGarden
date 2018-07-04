@@ -1,6 +1,6 @@
 package org.androidtown.holgabun;
 
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,36 +9,43 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText editText;
-    Button button;
+
     private static final String TAG = "TestActivity";
     private HttpConnection httpConn = HttpConnection.getInstance();
+    AutoScrollViewPager autoViewPager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ArrayList<Integer> data = new ArrayList<>(); //이미지 url를 저장하는 arraylist
+        data.add(R.drawable.test1);
+        data.add(R.drawable.test2);
+        data.add(R.drawable.test3);
 
 
-        button = (Button)findViewById(R.id.su);
-        editText = (EditText)findViewById(R.id.login);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String su = editText.getText().toString();
-                sendData();
-            }
-        });
+        autoViewPager = (AutoScrollViewPager)findViewById(R.id.view_pager);
+        AutoScrollAdapter scrollAdapter = new AutoScrollAdapter(this, data);
+        autoViewPager.setAdapter(scrollAdapter); //Auto Viewpager에 Adapter 장착
+        autoViewPager.setInterval(5000); // 페이지 넘어갈 시간 간격 설정
+       // autoViewPager.setScrollDurationFactor(0.2); //슬라이딩 애니메이션의 지속 시간을 변경하는 요소를 설정하십시오.
+        autoViewPager.startAutoScroll(); //Auto Scroll 시작
+
+
+
+
     }
 
     private void sendData() {
