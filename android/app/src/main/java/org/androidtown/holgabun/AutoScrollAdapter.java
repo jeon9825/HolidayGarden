@@ -33,11 +33,7 @@ public class AutoScrollAdapter extends PagerAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.auto_viewpager,null);
         ImageView image_container = (ImageView) v.findViewById(R.id.image_container);
-
         image_container.setImageResource(data.get(position));
-
-
-
         container.addView(v);
         return v;
     }
