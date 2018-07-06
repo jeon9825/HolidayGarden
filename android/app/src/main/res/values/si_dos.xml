@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "si_do">
+        <item>서울특별시</item>
+        <item>부산광역시</item>
+        <item>대구광역시</item>
+        <item>인천광역시</item>
+        <item>광주광역시</item>
+        <item>대전광역시</item>
+        <item>울산광역시</item>
+        <item>세종특별자치시</item>
+        <item>경기도</item>
+        <item>강원도</item>
+        <item>충청북도</item>
+        <item>충청남도</item>
+        <item>전라북도</item>
+        <item>전라남도</item>
+        <item>경상북도</item>
+        <item>경상남도</item>
+        <item>제주특별자치도</item>
+    </string-array>
+    <string-array name = "not">
+        <item>없음</item>
+
+    </string-array>
+
+    <string-array name = "Gung_si">
+        <item>시흥시</item>
+        <item>광명시</item>
+        <item>이천시</item>
+        <item>양주시</item>
+        <item>의왕시</item>
+        <item>의정부시</item>
+        <item>의왕시</item>
+        <item>하남시</item>
+        <item>과천시</item>
+        <item>고양시</item>
+        <item>남양주시</item>
+        <item>부천시</item>
+        <item>화성시</item>
+        <item>평택시</item>
+        <item>안산시</item>
+        <item>성남시</item>
+        <item>동두천시</item>
+        <item>양주시</item>
+        <item>파주시</item>
+        <item>광명시</item>
+        <item>수원시 권선구</item>
+        <item>수원시 장안구</item>
+    </string-array>
+</resources>
