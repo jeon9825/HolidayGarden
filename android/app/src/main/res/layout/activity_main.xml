@@ -47,6 +47,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickedTimeLine"
             android:padding="0dp"
             android:src="@drawable/main_image" />
     </LinearLayout>

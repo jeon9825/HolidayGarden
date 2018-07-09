@@ -1,5 +1,6 @@
 package org.androidtown.holgabun;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -23,7 +24,8 @@ import android.widget.LinearLayout;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment{
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -98,12 +100,12 @@ public class ProfileFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+        // TODO: Update argument type and na
         void onFragmentInteraction(Uri uri);
     }
 
-    public void onButtonWrite(View v){ //feed 페이지로 이동
-        Intent intent = new Intent(getActivity(), WriteActivity.class);
+    public void onButtonWrite(View v){ //write 페이지로 이동
+        Intent intent = new Intent(getActivity(), MainActivity.class);
         startActivity(intent);
     }
 }
