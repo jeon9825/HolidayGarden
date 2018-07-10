@@ -4,7 +4,6 @@ package org.androidtown.holgabun;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,12 +13,8 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     org.androidtown.holgabun.GridAdapter adapter2;
     GridView gridView;
 
-    final int imglist[]={R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four};
+    final int imglist[]={R.drawable.one, R.drawable.t2, R.drawable.three, R.drawable.four};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickedTimeLine(View v){
         Intent intent = new Intent(this, TimeLine.class);
+        startActivity(intent);
+    }
+
+    public void onClickedLogin(View v){
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 

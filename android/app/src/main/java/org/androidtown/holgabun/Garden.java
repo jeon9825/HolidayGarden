@@ -1,12 +1,10 @@
 package org.androidtown.holgabun;
 
-import org.androidtown.holgabun.R;
-
 public class Garden {
     String name;
     int imgno;
     String address;
-    final static int imalist[] = {R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four};
+    final static int imalist[] = {R.drawable.one,R.drawable.t2,R.drawable.three,R.drawable.four};
 
     public Garden (String name, int imgno, String address){
         this.name=name;

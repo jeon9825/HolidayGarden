@@ -106,7 +106,7 @@ public class WriteActivity extends AppCompatActivity {
     }
     public void onClickedBackPopup(View v) {
         //데이터 담아서 팝업(액티비티) 호출
-        Intent intent = new Intent(this, BackPopupActivity.class);
+        Intent intent = new Intent(this, PopupActivity.class);
         intent.putExtra("data", "Test Popup");
         startActivityForResult(intent, 1);
 
