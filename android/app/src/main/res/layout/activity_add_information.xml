@@ -97,8 +97,14 @@
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,6 +120,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12dp"
                     android:textStyle="bold" />
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -232,11 +239,13 @@
             android:layout_marginRight="10dp"
             android:layout_weight="3"
             android:background="@color/colorMain"
-            android:onClick="onClickedToMain"
+            android:onClick="onClicekedSuccessPop"
             android:text="완료"
             android:textColor="#ffffffff"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:background="#FF4F4F4F"
+            tools:ignore="OnClick" />
 
         <Button
             android:layout_width="wrap_content"

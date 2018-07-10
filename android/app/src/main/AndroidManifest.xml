@@ -21,20 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GoogleMap"/>
-        <activity android:name=".Search"/>
+        <activity android:name=".GoogleMap" />
+        <activity android:name=".Search" />
         <activity
             android:name=".PopupActivity"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".TimeLine"/>
-        <activity android:name=".TutorialActivity"/>
-        <activity android:name=".WriteActivity"/>
-        <activity android:name=".BackPopupActivity"/>
-        <activity android:name=".activity_search_account" />
-        <activity android:name=".Search_Account"/>
-        <activity android:name=".Tab_fragment1_search_account"/>
-        <activity android:name=".Tab_fragment2_Search_Account"/>
-        <activity android:name=".Change_Password"></activity>
+            android:theme="@android:style/Theme.Dialog"/>
+        <activity
+            android:name=".SignupSuccess"
+            android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".TimeLine" />
+        <activity android:name=".TutorialActivity" />
+        <activity android:name=".WriteActivity" />
+        <activity android:name=".Search_Account" />
+        <activity android:name=".Tab_fragment1_Search_Account" />
+        <activity android:name=".Tab_fragment2_Search_Account" />
+        <activity android:name=".Change_Password"
+            android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>
