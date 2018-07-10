@@ -25,10 +25,21 @@ public class TimeLine extends AppCompatActivity {
         likeButton = (Button) findViewById(R.id.likeButton);
         profileButton = (Button) findViewById(R.id.profileButton);
          notice =(LinearLayout) findViewById(R.id.notice);
+        notice.setVisibility(View.GONE);
+        FragmentManager fragmentManager =getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment,new FeedFragment());
+        fragmentTransaction.commit();
+
+
 
         feedButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
+
+                feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 FragmentManager fragmentManager =getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment,new FeedFragment());
@@ -39,7 +50,7 @@ public class TimeLine extends AppCompatActivity {
         likeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                notice.setVisibility(View.GONE);
+
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -52,7 +63,7 @@ public class TimeLine extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                notice.setVisibility(View.GONE);
+
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
