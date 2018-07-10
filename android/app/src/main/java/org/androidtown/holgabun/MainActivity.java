@@ -4,7 +4,6 @@ package org.androidtown.holgabun;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,12 +13,8 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +33,11 @@ public class MainActivity extends AppCompatActivity {
     org.androidtown.holgabun.GridAdapter adapter2;
     GridView gridView;
 
+<<<<<<< HEAD
     final int imglist[] = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four};
+=======
+    final int imglist[]={R.drawable.one, R.drawable.t2, R.drawable.three, R.drawable.four};
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("Garden Information");
 
+<<<<<<< HEAD
         gridView = (GridView) findViewById(R.id.grid);
         adapter2 = new GridAdapter(this, Garden);
 
@@ -54,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
         //Garden.add(new Garden("수박",imglist[1],"1000원"));
         //Garden.add(new Garden("오렌지",imglist[2],"1000원"));
         //Garden.add(new Garden("바나나",imglist[3],"1000원"));
+=======
+        gridView = (GridView)findViewById(R.id.grid);
+        adapter2 = new GridAdapter(this, Garden);
+
+        Garden.add(new Garden("아보카도",imglist[0],"1000원"));
+        Garden.add(new Garden("수박",imglist[1],"1000원"));
+        Garden.add(new Garden("오렌지",imglist[2],"1000원"));
+        Garden.add(new Garden("바나나",imglist[3],"1000원"));
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
         gridView.setAdapter(adapter2);
 
         ArrayList<Integer> data = new ArrayList<>(); //이미지 url를 저장하는 arraylist
@@ -115,10 +124,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
     public void onClickedTimeLine(View v) {
         Intent intent = new Intent(this, TimeLine.class);
         startActivity(intent);
     }
+=======
+    public void onClickedTimeLine(View v){
+        Intent intent = new Intent(this, TimeLine.class);
+        startActivity(intent);
+    }
+
+    public void onClickedLogin(View v){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
 
 }

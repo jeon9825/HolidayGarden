@@ -24,6 +24,7 @@ public class TimeLine extends AppCompatActivity {
         feedButton = (Button) findViewById(R.id.feedButton);
         likeButton = (Button) findViewById(R.id.likeButton);
         profileButton = (Button) findViewById(R.id.profileButton);
+<<<<<<< HEAD
          notice =(LinearLayout) findViewById(R.id.notice);
         notice.setVisibility(View.GONE);
         FragmentManager fragmentManager =getSupportFragmentManager();
@@ -32,58 +33,78 @@ public class TimeLine extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
+=======
+        notice = (LinearLayout) findViewById(R.id.notice);
+        notice.setVisibility(View.GONE);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, new FeedFragment());
+        fragmentTransaction.commit();
 
-        feedButton.setOnClickListener(new View.OnClickListener(){
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
+
+        feedButton.setOnClickListener(new View.OnClickListener() {
             @Override
+<<<<<<< HEAD
             public void onClick (View view){
+=======
+            public void onClick(View view) {
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+<<<<<<< HEAD
                 FragmentManager fragmentManager =getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment,new FeedFragment());
+=======
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new FeedFragment());
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
                 fragmentTransaction.commit();
             }
         });
 
-        likeButton.setOnClickListener(new View.OnClickListener(){
+        likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
+<<<<<<< HEAD
             public void onClick (View view){
+=======
+            public void onClick(View view) {
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-                FragmentManager fragmentManager =getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment,new LikeFragment());
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new LikeFragment());
                 fragmentTransaction.commit();
             }
         });
-        profileButton.setOnClickListener(new View.OnClickListener(){
+        profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
+<<<<<<< HEAD
             public void onClick (View view){
+=======
+            public void onClick(View view) {
+>>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                FragmentManager fragmentManager =getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment,new ProfileFragment());
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new ProfileFragment());
                 fragmentTransaction.commit();
             }
         });
     }
 
-
-
     public void MainClicked(View v){ //메인페이지로 이동
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void onButtonFeed(View v){ //feed 페이지로 이동
-        Intent intent = new Intent(this, TimeLine.class);
         startActivity(intent);
     }
 
