@@ -25,18 +25,20 @@
         <activity android:name=".Search" />
         <activity
             android:name=".PopupActivity"
-            android:theme="@android:style/Theme.Dialog"/>
+            android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".SignupSuccess"
-            android:theme="@android:style/Theme.Dialog"/>
+            android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".TimeLine" />
         <activity android:name=".TutorialActivity" />
         <activity android:name=".WriteActivity" />
         <activity android:name=".Search_Account" />
         <activity android:name=".Tab_fragment1_Search_Account" />
         <activity android:name=".Tab_fragment2_Search_Account" />
-        <activity android:name=".Change_Password"
-            android:theme="@android:style/Theme.Dialog"></activity>
+        <activity
+            android:name=".Change_Password"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Search_ID_Fail"></activity>
     </application>
 
 </manifest>

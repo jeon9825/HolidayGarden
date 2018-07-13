@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     private Spinner spinner;
     private static final String TAG = "TestActivity";
-    private HttpConnection httpConn = HttpConnection.getInstance();
     AutoScrollViewPager autoViewPager;
     Button button;
     EditText editText;
