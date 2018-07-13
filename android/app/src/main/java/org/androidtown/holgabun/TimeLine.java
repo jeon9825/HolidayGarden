@@ -24,7 +24,7 @@ public class TimeLine extends AppCompatActivity {
         feedButton = (Button) findViewById(R.id.feedButton);
         likeButton = (Button) findViewById(R.id.likeButton);
         profileButton = (Button) findViewById(R.id.profileButton);
-<<<<<<< HEAD
+
          notice =(LinearLayout) findViewById(R.id.notice);
         notice.setVisibility(View.GONE);
         FragmentManager fragmentManager =getSupportFragmentManager();
@@ -33,47 +33,26 @@ public class TimeLine extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
-=======
-        notice = (LinearLayout) findViewById(R.id.notice);
-        notice.setVisibility(View.GONE);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment, new FeedFragment());
-        fragmentTransaction.commit();
-
->>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
         feedButton.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
             public void onClick (View view){
-=======
-            public void onClick(View view) {
->>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 profileButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-<<<<<<< HEAD
                 FragmentManager fragmentManager =getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment,new FeedFragment());
-=======
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment, new FeedFragment());
->>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
+
                 fragmentTransaction.commit();
             }
         });
 
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
+
             public void onClick (View view){
-=======
-            public void onClick(View view) {
->>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
 
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -86,11 +65,8 @@ public class TimeLine extends AppCompatActivity {
         });
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
             public void onClick (View view){
-=======
-            public void onClick(View view) {
->>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
+
 
                 feedButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 likeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));

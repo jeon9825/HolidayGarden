@@ -3,11 +3,11 @@
     package="org.androidtown.holgabun">
 
     <uses-permission android:name="android.permission.INTERNET" />
-<<<<<<< HEAD
-    <!--WIFI 상태활용시 추가--><uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <!--WIFI 상태활용시 추가--><uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-=======
->>>>>>> 5e670851b6250999d0fe2e7d131bfec4d502de16
+
+    <!-- WIFI 상태활용시 추가 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- WIFI 상태활용시 추가 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -26,20 +26,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GoogleMap"/>
-        <activity android:name=".Search"/>
+        <activity android:name=".GoogleMap" />
+        <activity android:name=".Search" />
         <activity
             android:name=".PopupActivity"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".TimeLine"/>
-        <activity android:name=".TutorialActivity"/>
-        <activity android:name=".WriteActivity"/>
-        <activity android:name=".BackPopupActivity"/>
-        <activity android:name=".activity_search_account" />
-        <activity android:name=".Search_Account"/>
-        <activity android:name=".Tab_fragment1_search_account"/>
-        <activity android:name=".Tab_fragment2_Search_Account"/>
-        <activity android:name=".Change_Password"></activity>
+        <activity android:name=".TimeLine" />
+        <activity android:name=".TutorialActivity" />
+        <activity android:name=".WriteActivity" />
+        <activity android:name=".Search_Account" />
+        <activity android:name=".Change_Password" />
+        <activity android:name=".Garden_IM"></activity>
     </application>
 
 </manifest>
