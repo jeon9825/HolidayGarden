@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class WriteActivity extends AppCompatActivity {
     private static final int SELECT_PICTURE = 1;
-
+    TextView textView;
     private String selectedImagePath;
 
     @Override
@@ -40,7 +40,7 @@ public class WriteActivity extends AppCompatActivity {
                 });
         final EditText edittext=(EditText)findViewById(R.id.edittext);
         Button button=(Button)findViewById(R.id.checkButton);
-        @SuppressLint("WrongViewCast") final TextView textView=(TextView)findViewById(R.id.textview);
+        textView=(TextView)findViewById(R.id.textView);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
