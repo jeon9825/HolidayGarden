@@ -14,22 +14,24 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".AddInformationActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".GoogleMap" />
         <activity android:name=".Search" />
         <activity
             android:name=".PopupActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".TimeLine" />
-        <activity android:name=".TutorialActivity" />
+        <activity android:name=".TutorialActivity">
+            <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+    </activity>
         <activity android:name=".WriteActivity" />
-        <activity android:name=".BackPopupActivity"></activity>
+        <activity android:name=".BackPopupActivity" />
+        <activity android:name=".TutorialViewPagerTutorial"></activity>
     </application>
 
 </manifest>
