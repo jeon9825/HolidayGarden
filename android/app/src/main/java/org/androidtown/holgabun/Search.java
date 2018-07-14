@@ -86,7 +86,7 @@ public class Search extends AppCompatActivity {
 
 
 
-        // -------검색 값 받기-------------------------
+        // / -------검색 값 받기-------------------------
         intent = getIntent();
         editText = (EditText) findViewById(R.id.search_tutname);
         editText.setText(intent.getStringExtra("name"));
