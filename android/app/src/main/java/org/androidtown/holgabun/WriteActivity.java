@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class WriteActivity extends AppCompatActivity {
     private static final int SELECT_PICTURE = 1;
-    TextView textview;
+
     private String selectedImagePath;
 
     @Override
@@ -40,11 +40,11 @@ public class WriteActivity extends AppCompatActivity {
                 });
         final EditText edittext=(EditText)findViewById(R.id.edittext);
         Button button=(Button)findViewById(R.id.checkButton);
-        textview=(TextView)findViewById(R.id.textview);
+        @SuppressLint("WrongViewCast") final TextView textView=(TextView)findViewById(R.id.textview);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textview.setText(edittext.getText());
+                textView.setText(edittext.getText());
             }
         });
 
@@ -85,30 +85,8 @@ public class WriteActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public static class GridItem extends LinearLayout {
 
-        TextView tv;
-        ImageView iv;
-        TextView tv2;
 
-        public GridItem(Context context) {
-            super(context);
-            init(context);
-        }
-
-        public void init(Context context) {
-            View view = LayoutInflater.from(context).inflate(R.layout.activity_grid_item, this);
-            tv = (TextView) findViewById(R.id.tv1);
-            tv2 = (TextView) findViewById(R.id.tv2);
-            iv = (ImageView) findViewById(R.id.img1);
-        }
-
-        public void setData(Garden one) {
-            tv.setText(one.getName());
-            tv2.setText(one.getAddress());
-            iv.setImageBitmap(one.getImgno());
-        }
-    }
     public void MainClicked(View v){ //메인페이지로 이동
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -119,10 +97,8 @@ public class WriteActivity extends AppCompatActivity {
     }
     public void onClickedBackPopup(View v) {
         //데이터 담아서 팝업(액티비티) 호출
-
         Intent intent = new Intent(this, BackPopupActivity.class);
         intent.putExtra("data", "돌아가면 내용이 지워집니다. 그래도 돌아가시겠습니까?");
-
         startActivityForResult(intent, 1);
 
     }
