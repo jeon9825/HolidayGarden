@@ -35,9 +35,19 @@
         </activity>
         <activity android:name=".WriteActivity" />
         <activity android:name=".Search_Account" />
-        <activity android:name=".Change_Password" />
         <activity android:name=".Garden_IM" />
         <activity android:name=".BackPopupActivity"></activity>
+
+        <activity
+            android:name=".SignupSuccess"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Tab_fragment1_Search_Account" />
+
+        <activity
+            android:name=".Change_Password"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Search_ID_Fail"></activity>
+
     </application>
 
 </manifest>
