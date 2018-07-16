@@ -28,7 +28,7 @@ import java.util.HashMap;
 
 public class WriteActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int SELECT_PICTURE = 1;
-
+    TextView textView;
     private String selectedImagePath;
     private Bitmap bitmap;
     private Uri selectedImageUri;
@@ -57,9 +57,11 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
                                 "Select Picture"), SELECT_PICTURE);
                     }
                 });
+
         edittext=(EditText)findViewById(R.id.edittext);
         image=(ImageView)findViewById(R.id.img_date2);
         RequestURL.setOnClickListener(this);
+
 
 
 
