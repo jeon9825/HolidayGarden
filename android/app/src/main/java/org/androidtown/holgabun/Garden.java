@@ -1,14 +1,12 @@
 package org.androidtown.holgabun;
 
-import android.graphics.Bitmap;
-
 public class Garden {
     String name;
-    Bitmap imgno;
+    int imgno;
     String address;
+    final static int imalist[] = {R.drawable.one,R.drawable.t2,R.drawable.three,R.drawable.four};
 
-
-    public Garden (String name, Bitmap imgno, String address){
+    public Garden (String name, int imgno, String address){
         this.name=name;
         this.imgno = imgno;
         this.address = address;
@@ -22,11 +20,11 @@ public class Garden {
         this.name = name;
     }
 
-    public Bitmap getImgno(){
+    public int getImgno(){
         return imgno;
     }
 
-    public void setImgno(Bitmap imgno){
+    public void setImgno(int imgno){
         this.imgno = imgno;
     }
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/colorPrimary">
 
 
 
@@ -36,6 +37,8 @@
         android:layout_gravity="center"
         android:gravity="top">
         <EditText
+            android:padding="15dp"
+            android:background="@drawable/outline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -48,9 +51,10 @@
             android:textColorHint="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="14dp" />
+            android:textSize="17dp" />
         <EditText
-
+            android:padding="15dp"
+            android:background="@drawable/outline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -63,7 +67,7 @@
             android:textColorHint="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="14dp" />
+            android:textSize="17dp" />
     </LinearLayout>
 
     <LinearLayout
