@@ -1,5 +1,6 @@
 package org.androidtown.holgabun;
 
+
         import android.app.Activity;
         import android.content.Context;
         import android.content.Intent;
@@ -20,6 +21,7 @@ package org.androidtown.holgabun;
 
         import java.text.SimpleDateFormat;
         import java.util.Date;
+
 
 
 /**
@@ -118,6 +120,7 @@ public class ProfileFragment extends Fragment{
         // TODO: Update argument type and na
         void onFragmentInteraction(Uri uri);
     }
+
 
 //    public void onButtonWrite(View v){ //write 페이지로 이동
 //        Intent intent = new Intent(getActivity(), MainActivity.class);
