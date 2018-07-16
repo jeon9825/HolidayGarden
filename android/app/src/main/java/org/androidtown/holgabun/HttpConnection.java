@@ -1,5 +1,6 @@
 package org.androidtown.holgabun;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -37,6 +38,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 
 import java.net.URL;
+import java.util.HashMap;
 
 
 /**
@@ -61,6 +63,7 @@ public class HttpConnection extends AsyncTask<String, Void, String>
     final static String openWeatherURL = "http://211.237.50.150:7080/openapi/abf160159dcc1880ee2a7c68af142681cc72667378a51204b6d47167fd28add6/json/Grid_20171122000000000552_1/1/5";
 
     String Server_url = "http://ec2-13-209-68-163.ap-northeast-2.compute.amazonaws.com/";
+
 
     @Override
     public String doInBackground(String... params) {
@@ -100,8 +103,8 @@ public class HttpConnection extends AsyncTask<String, Void, String>
             }else if(params[0].equals("suid"))
             {
                 urlString=Server_url+"checkId.php?ID="+params[1];
-
             }
+
 
             URL url = new URL(urlString);
 
