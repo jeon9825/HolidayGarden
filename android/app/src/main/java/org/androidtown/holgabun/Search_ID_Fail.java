@@ -12,10 +12,7 @@ import android.widget.Button;
 
 public class Search_ID_Fail extends AppCompatActivity {
 
-    public void onClickedMain(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,4 +20,8 @@ public class Search_ID_Fail extends AppCompatActivity {
         setContentView(R.layout.activity_search_id_fail);
 
     }
+
+
+
+
 }
