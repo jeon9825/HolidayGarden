@@ -47,6 +47,11 @@ public class DbOpenHelper {
     }
 
 
+
+    public void Insert(String id,String pwd)
+    {
+        mDB.execSQL("INSERT INTO Log VALUES("+id+","+pwd+","+0+")");
+    }
     public int returnOnOff()
 
     {
