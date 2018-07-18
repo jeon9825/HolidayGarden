@@ -171,5 +171,3 @@ public class HttpConnection extends AsyncTask<String, Void, String>
 
 
 }
-
-
