@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             h.N_ID_Save();
         }
 
+        h.close();
 
     }
 
@@ -140,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
                         editText=(EditText)findViewById(R.id.pw);
                         h.login(p,editText.getText().toString());
 
-                        h.close();
+
 
                         Checked();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);

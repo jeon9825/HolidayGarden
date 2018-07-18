@@ -43,7 +43,8 @@
             android:name=".Change_Password"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".Search_ID_Fail" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Search_ID_SNS" />
     </application>
 
 </manifest>
