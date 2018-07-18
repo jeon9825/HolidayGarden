@@ -327,6 +327,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    public void onClickedLogin(View v) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 
 }

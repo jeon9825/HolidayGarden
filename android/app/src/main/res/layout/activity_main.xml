@@ -25,9 +25,10 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="#ffffff"
                 android:layout_gravity="left"
                 android:layout_marginRight="20dp"
+                android:background="#ffffff"
+                android:onClick="onClickedLogin"
                 android:src="@drawable/ic_menu_black_24dp" />
 
             <TextView
