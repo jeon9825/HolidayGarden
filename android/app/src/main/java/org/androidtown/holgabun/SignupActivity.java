@@ -51,10 +51,7 @@ public class SignupActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String su = editText.getText().toString();
-                singup();
-
-
+                singupFunc();
             }
         });
 
@@ -65,8 +62,8 @@ public class SignupActivity extends AppCompatActivity {
     }
 
 
-    private void singup(){
-        class UploadImage extends AsyncTask<String,Void,String> {
+    private void singupFunc(){
+        class SingupAsync extends AsyncTask<String,Void,String> {
 
             ProgressDialog loading;
             RequestHandler rh = new RequestHandler();
@@ -74,22 +71,36 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(SignupActivity.this, "Uploading...", null,true,true);
+               loading = ProgressDialog.show(SignupActivity.this, "Uploading...", null,true,true);
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(getApplicationContext(),s, Toast.LENGTH_LONG).show();
+               if(s.equals("login success!"))
+               {
+                    Intent intent =new Intent(SignupActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+               }
             }
 
             @Override
             protected String doInBackground(String... params) {
 
 
-                HashMap<String,String> data = new HashMap<>();
 
+                HashMap<String,String> data = new HashMap<>();
+                editText=(EditText)findViewById(R.id.ids);
+                data.put("ID",editText.getText().toString());
+                editText=(EditText)findViewById(R.id.pw_1);
+                data.put("PWD",editText.getText().toString());
+                editText=(EditText)findViewById(R.id.nickname);
+                data.put("NAME",editText.getText().toString());
+                data.put("QUEST",spinner.getSelectedItem().toString());
+                editText=(EditText)findViewById(R.id.answer);
+                data.put("ASW",editText.getText().toString());
 
                 String result = rh.sendPostRequest("http://ec2-13-209-68-163.ap-northeast-2.compute.amazonaws.com/requestLogin.php",data);
 
@@ -97,7 +108,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         }
 
-        UploadImage ui = new UploadImage();
+        SingupAsync ui = new SingupAsync();
         ui.execute("");
     }
 }

@@ -31,7 +31,7 @@ public class DbOpenHelper {
         // 최초 DB를 만들때 한번만 호출된다.
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE Log (id Text PRIMARY KEY, password Text,onOff integer);");
+            db.execSQL("CREATE TABLE Log (id Text PRIMARY KEY, password Text,onOff INTEGER,idSave INTEGER);");
         }
 
         // 버전이 업데이트 되었을 경우 DB를 다시 만들어 준다.
@@ -46,19 +46,58 @@ public class DbOpenHelper {
         this.mCtx = context;
     }
 
+
+
+    public void login(String id,String pwd)
+    {
+
+        try {
+            mDB.execSQL("DELETE FROM Log;");
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+            mDB.execSQL("INSERT INTO Log VALUES('"+id+"','"+pwd+"',"+2+","+0+");");
+
+
+    }
+
+    public int returnIDSAVE(){
+        try {
+            Cursor cursor = mDB.rawQuery("select idSave from Log", null);
+
+            while (cursor.moveToNext()) {
+
+                return cursor.getInt(0);
+
+            }
+            return -1;
+        }catch (NullPointerException e)
+        {
+            return -1;
+        }
+    }
     public int returnOnOff()
     {
-        Cursor cursor= mDB.rawQuery("select onoff from Log",null);
+        try {
+            Cursor cursor = mDB.rawQuery("select onoff from Log", null);
 
-        while(cursor.moveToNext()){
+            while (cursor.moveToNext()) {
+
                 return cursor.getInt(0);
+
+            }
+            return -1;
+        }catch (NullPointerException e)
+        {
+            return -1;
         }
-        return -1;
     }
 
     public void automaticLogin()
     {
-         mDB.execSQL("UPDATE Log set onOff=" + 1 + ";");
+
+        mDB.execSQL("UPDATE Log set onOff=" + 1 + ";");
+
     }
 
     public void logOut()
@@ -66,13 +105,28 @@ public class DbOpenHelper {
         mDB.execSQL("UPDATE Log set onOff=" + 0 + ";");
     }
 
-    public String returnId() {
-        Cursor cursor = mDB.rawQuery("select id from Log", null);
+    public void ID_Save(){
+        mDB.execSQL("UPDATE Log set idSave="+1+";");
+    }
 
-        while (cursor.moveToNext()) {
-            return cursor.getString(0);
+    public void N_ID_Save(){
+        mDB.execSQL("UPDATE Log set idSave="+0+";");
+    }
+
+
+    public String returnId() {
+
+        try {
+            Cursor cursor = mDB.rawQuery("select * from Log", null);
+
+          while (cursor.moveToNext()) {
+                return cursor.getString(0);
+            }
+
+            return "a";
+        }catch(NullPointerException e){
+            return "not";
         }
-        return "";
     }
 
     public DbOpenHelper open() throws SQLException {

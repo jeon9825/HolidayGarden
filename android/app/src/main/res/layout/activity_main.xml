@@ -47,14 +47,15 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:padding="0dp"
+                android:layout_marginRight="10dp"
                 android:id="@+id/home"
                 android:background="@drawable/ic_home_black_24dp" />
 
             <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:padding="0dp"
-                android:background="@drawable/icon"
+                android:background="@drawable/icon_grey"
                 android:onClick="onClickedTimeLine"/>
         </LinearLayout>
 
@@ -66,7 +67,10 @@
             <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"></cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
+                android:layout_height="230dp"
+                android:layout_marginBottom="20dp">
+
+            </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
         </LinearLayout>
 
         <LinearLayout
@@ -77,18 +81,18 @@
             android:gravity="center"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp">
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -96,7 +100,7 @@
 
                         android:text="분양 정보"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="25dp"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -112,28 +116,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:paddingBottom="15dp"
+                        android:paddingTop="30dp"
+                        android:paddingLeft="40dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="텃밭 위치"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
 
                         <Spinner
                             android:id="@+id/si"
-                            android:layout_width="100dp"
+                            android:layout_width="150dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="10dp"></Spinner>
+                            android:background="@drawable/outline"
+                            ></Spinner>
 
                         <Spinner
                             android:id="@+id/gu"
-                            android:layout_width="150dp"
+                            android:layout_width="130dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="20dp">
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/outline">
 
                         </Spinner>
                     </LinearLayout>
@@ -143,25 +143,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="텃밭명"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"/>
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="40dp">
 
                         <EditText
-                            android:layout_width="250dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="35dp"
-                            android:background="@drawable/border"
+                            android:layout_width="230dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/outline"
                             android:id="@+id/tutname"
                             android:hint="생략"
-                            />
+                            android:paddingLeft="20dp" />
 
 
                     </LinearLayout>
@@ -170,9 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="right"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="15dp">
+                        android:gravity="right">
 
                         <Button
                             android:layout_width="80dp"
@@ -211,9 +201,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="새로운 분양!"
+                    android:text="새로운 분양"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     android:paddingBottom="15dp"
                     />

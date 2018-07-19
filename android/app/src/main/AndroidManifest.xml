@@ -16,38 +16,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".LoginActivity" />
-
+        <activity android:name=".SignupActivity" />
         <activity android:name=".AddInformationActivity" />
-        <activity android:name=".MainActivity">
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-    </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".Search" />
         <activity
             android:name=".PopupActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".TimeLine" />
-        <activity android:name=".SignupActivity"/>
+        <activity android:name=".Loading">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".WriteActivity" />
         <activity android:name=".Search_Account" />
         <activity android:name=".Garden_IM" />
-        <activity android:name=".BackPopupActivity"></activity>
-
+        <activity android:name=".BackPopupActivity" />
         <activity
             android:name=".SignupSuccess"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".Tab_fragment1_Search_Account" />
-
         <activity
             android:name=".Change_Password"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".Search_ID_Fail"></activity>
-
+        <activity android:name=".Search_ID_Fail" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
