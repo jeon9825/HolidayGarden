@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Integer> data = new ArrayList<>(); //이미지 url를 저장하는 arraylist
         data.add(R.drawable.main_image1);
         data.add(R.drawable.main_image2);
+        data.add(R.drawable.main_image3);
 
 
         autoViewPager = (AutoScrollViewPager) findViewById(R.id.view_pager);

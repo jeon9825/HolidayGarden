@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         else{
             h.N_ID_Save();
         }
+        h.close();
 
         h.close();
 

@@ -24,13 +24,6 @@
             android:name=".PopupActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".TimeLine" />
-        <activity android:name=".Loading">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".WriteActivity" />
         <activity android:name=".Search_Account" />
         <activity android:name=".Garden_IM" />
@@ -44,7 +37,16 @@
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".Search_ID_Fail" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".another_profile"></activity>
-    </application>
 
+        <activity android:name=".another_profile"></activity>
+
+        <activity android:name=".SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

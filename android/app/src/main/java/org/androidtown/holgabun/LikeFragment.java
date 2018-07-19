@@ -2,7 +2,9 @@ package org.androidtown.holgabun;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+
 import android.content.Intent;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,12 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,7 +60,9 @@ public class LikeFragment extends Fragment {
     EditText editText;
     Button button;
     String s1,s2,s3;
+
     InputMethodManager imm;
+
     private OnFragmentInteractionListener mListener;
 
     public LikeFragment() {
@@ -99,6 +105,7 @@ public class LikeFragment extends Fragment {
 
         listview=(ListView)view.findViewById(R.id.user_list);
         adapter=new SearchUserAdapter();
+
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -114,6 +121,7 @@ public class LikeFragment extends Fragment {
         });
 
 
+
         button=(Button)view.findViewById(R.id.user_Search);
         editText=(EditText)view.findViewById(R.id.SU);
 
@@ -121,6 +129,7 @@ public class LikeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 List();
+
                 imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
             }
         });
@@ -198,6 +207,7 @@ public class LikeFragment extends Fragment {
 
                     }
                     listview.setAdapter(adapter);
+
 
                 }catch(JSONException e){
                     e.printStackTrace();
