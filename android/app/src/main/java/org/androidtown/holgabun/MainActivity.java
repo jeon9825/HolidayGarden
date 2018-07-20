@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         autoViewPager.startAutoScroll(); //Auto Scroll 시작
 
 
-        
+
         spinner_si = (Spinner) findViewById(R.id.si);
         adapter = ArrayAdapter.createFromResource(this, R.array.si_do, android.R.layout.simple_spinner_dropdown_item);
         spinner_si.setAdapter(adapter);

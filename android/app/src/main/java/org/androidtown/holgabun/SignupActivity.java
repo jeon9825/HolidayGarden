@@ -51,7 +51,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         button = (Button) findViewById(R.id.Signup);
-        editText = (EditText) findViewById(R.id.id);
+        editText = (EditText) findViewById(R.id.ids);
         editText2 =(EditText) findViewById(R.id.pw_1);
         editText3=(EditText)findViewById(R.id.pw_2);
         passwordcorrect=(TextView) findViewById(R.id.passwordcorrect);
