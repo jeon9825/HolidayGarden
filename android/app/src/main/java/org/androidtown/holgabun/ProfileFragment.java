@@ -69,6 +69,7 @@ public class ProfileFragment extends Fragment{
     String feed_id;
     ArrayList<Bitmap> please;
     String url;
+    TextView t;
 
     ImageView img;
     Button b;
@@ -150,12 +151,16 @@ public class ProfileFragment extends Fragment{
 
         listView=(ListView)view.findViewById(R.id.myfeed);
 
+        t=(TextView)view.findViewById(R.id.nickname_profile);
+
+
 
 
         DbOpenHelper h=new DbOpenHelper(getActivity());
 
         h.open();
 
+        t.setText(h.returnId());
 
         feed_id=h.returnId();
 
