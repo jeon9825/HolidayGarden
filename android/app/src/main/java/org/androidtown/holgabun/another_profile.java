@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class another_profile extends AppCompatActivity {
 
     ListView listView;
-    ArrayList<Bitmap> please;
+
     String feed_id;
     String id;
     Button b;
@@ -65,6 +65,7 @@ public class another_profile extends AppCompatActivity {
         t.setText(feed_id);
 
         follow("is");
+        List();
     }
     private void follow(String request){
         class Follow extends AsyncTask<String,Void,String> {
@@ -135,6 +136,8 @@ public class another_profile extends AppCompatActivity {
 
             ProgressDialog loading;
             RequestHandler rh = new RequestHandler();
+            FeedAdapter feedAdapter=new FeedAdapter();
+
 
             @Override
             protected void onPreExecute() {
@@ -146,31 +149,14 @@ public class another_profile extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Log.d("THIS",s);
 
 
 
-                try{
-                    JSONArray jsonArray = new JSONArray(s);
-
-                    FeedAdapter feedAdapter=new FeedAdapter();
 
 
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        // Array 에서 하나의 JSONObject 를 추출
-                        JSONObject dataJsonObject = jsonArray.getJSONObject(i);
-                        // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
 
-                        feedAdapter.addItem(BitmapFactory.decodeResource(getResources(),R.drawable.icon),dataJsonObject.getString("id"),please.get(i),dataJsonObject.getString("text"),
-                                dataJsonObject.getString("bolderNum"),dataJsonObject.getString("time"));
+                listView.setAdapter(feedAdapter);
 
-                    }
-                    listView.setAdapter(feedAdapter);
-
-
-                }catch(JSONException e){
-                    e.printStackTrace();
-                }
 
 
             }
@@ -180,63 +166,59 @@ public class another_profile extends AppCompatActivity {
 
 
 
+
+
                 HashMap<String,String> data = new HashMap<>();
 
 
                 data.put("ID",feed_id);
 
 
-                String res = rh.sendPostRequest("http://ec2-13-209-68-163.ap-northeast-2.compute.amazonaws.com/getID.php",data);
+                    String result = rh.sendPostRequest("http://ec2-13-209-68-163.ap-northeast-2.compute.amazonaws.com/AnoBolder.php",data);
 
-                try{
-                    JSONObject J=new JSONObject(res);
-                    id=J.getString("id");
-
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-
-                data.clear();
-                data.put("ID",id);
-
-                String result = rh.sendPostRequest("http://ec2-13-209-68-163.ap-northeast-2.compute.amazonaws.com/MyBolder.php",data);
+                    try {
+                        JSONArray j = new JSONArray(result);
 
 
-                try {
-                    JSONArray j = new JSONArray(result);
+                        for (int i = 0; i < j.length(); i++) {
 
-                    please=new ArrayList<Bitmap>();
-                    for (int i = 0; i < j.length(); i++) {
+                            // Array 에서 하나의 JSONObject 를 추출
+                            JSONObject dataJsonObject = j.getJSONObject(i);
+                            // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
 
-                        // Array 에서 하나의 JSONObject 를 추출
-                        JSONObject dataJsonObject = j.getJSONObject(i);
-                        // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-                        URL url=new URL(dataJsonObject.getString("image").replace("\\",""));
+                            URL url=new URL(dataJsonObject.getString("image").replace("\\",""));
 
-                        HttpURLConnection conn=(HttpURLConnection)url.openConnection();
-                        conn.setDoInput(true);
-                        conn.connect();
-                        InputStream is=conn.getInputStream();
+                            HttpURLConnection conn=(HttpURLConnection)url.openConnection();
+                            conn.setDoInput(true);
+                            conn.connect();
+                            InputStream is=conn.getInputStream();
+                            // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
 
-                        please.add(BitmapFactory.decodeStream(is));
+                            feedAdapter.addItem(dataJsonObject.getString("id"),BitmapFactory.decodeStream(is),dataJsonObject.getString("text"),
+                                    dataJsonObject.getString("bolderNum"),dataJsonObject.getString("time"));
+
+                        }
 
 
+                            return result;
+
+
+                    }catch(JSONException e)
+                    {
+                        e.printStackTrace();
+                    }catch (MalformedURLException e)
+                    {
+                        e.printStackTrace();
+                    }catch(IOException e)
+                    {
+                        e.printStackTrace();
                     }
 
 
 
 
-                }catch(JSONException e)
-                {
-                    e.printStackTrace();
-                }catch (MalformedURLException e)
-                {
-                    e.printStackTrace();
-                }catch(IOException e)
-                {
-                    e.printStackTrace();
-                }
-                return result;
+
+         return null;
             }
         }
 

@@ -1,19 +1,20 @@
 package org.androidtown.holgabun;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import org.androidtown.holgabun.R;
 
 public class FeedItem {
-    Bitmap feedIdImage;
+
     String feedtime;
     String boldernum;
     String feedId;
     Bitmap feedImage;
     String feedText;
 
-    public FeedItem(Bitmap feedIdImage, String feedId, Bitmap feedImage, String feedText,String boldernum,String feedtime) {
-        this.feedIdImage = feedIdImage;
+    public FeedItem(String feedId, Bitmap feedImage, String feedText, String boldernum, String feedtime) {
+
         this.feedId = feedId;
         this.feedImage = feedImage;
         this.feedText = feedText;
@@ -21,9 +22,7 @@ public class FeedItem {
         this.boldernum=boldernum;
     }
 
-    public Bitmap getFeedIdImage() {
-        return feedIdImage;
-    }
+
 
     public String getFeedId() {
         return feedId;
@@ -41,9 +40,7 @@ public class FeedItem {
 
     public String getBoldernum(){return boldernum;};
 
-    public void setFeedIdImage(Bitmap feedIdImage) {
-        this.feedIdImage = feedIdImage;
-    }
+
 
     public void setFeedId(String feedId) {
         this.feedId = feedId;

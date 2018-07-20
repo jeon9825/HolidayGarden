@@ -53,7 +53,8 @@ public class FeedFragment extends Fragment {
     ListView listView;
     FeedAdapter feedAdapter;
     String feed_id;
-    ArrayList<Bitmap> please;
+
+    ProgressDialog loading;
 
     public FeedFragment() {
         // Required empty public constructor
@@ -108,11 +109,21 @@ public class FeedFragment extends Fragment {
          return view;
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (loading != null) {
+            loading.dismiss();
+            loading = null;
+        }
+    }
+
     private void List(){
         class ListSaw extends AsyncTask<String,Void,String> {
 
-            ProgressDialog loading;
+
             RequestHandler rh = new RequestHandler();
+
 
             @Override
             protected void onPreExecute() {
@@ -130,29 +141,7 @@ public class FeedFragment extends Fragment {
 
                 Log.d("THIS",s);
 
-
-
-                try{
-                    JSONArray jsonArray = new JSONArray(s);
-
-                    FeedAdapter feedAdapter=new FeedAdapter();
-
-
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        // Array 에서 하나의 JSONObject 를 추출
-                        JSONObject dataJsonObject = jsonArray.getJSONObject(i);
-                        // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-
-                        feedAdapter.addItem(BitmapFactory.decodeResource(getResources(),R.drawable.icon),dataJsonObject.getString("id"),please.get(i),dataJsonObject.getString("text"),
-                                dataJsonObject.getString("bolderNum"),dataJsonObject.getString("time"));
-
-                    }
-                    listView.setAdapter(feedAdapter);
-
-
-                }catch(JSONException e){
-                    e.printStackTrace();
-                }
+                listView.setAdapter(feedAdapter);
 
 
             }
@@ -166,14 +155,17 @@ public class FeedFragment extends Fragment {
                 HashMap<String,String> data = new HashMap<>();
 
 
+
                 data.put("ID",feed_id);
+
+
 
                 String result = rh.sendPostRequest("http://ec2-13-209-68-163.ap-northeast-2.compute.amazonaws.com/AllBolder.php",data);
 
                 try {
                     JSONArray j = new JSONArray(result);
 
-                    please=new ArrayList<Bitmap>();
+
                     for (int i = 0; i < j.length(); i++) {
 
                         // Array 에서 하나의 JSONObject 를 추출
@@ -186,7 +178,8 @@ public class FeedFragment extends Fragment {
                         conn.connect();
                         InputStream is=conn.getInputStream();
 
-                        please.add(BitmapFactory.decodeStream(is));
+                        feedAdapter.addItem(dataJsonObject.getString("id"),BitmapFactory.decodeStream(is),dataJsonObject.getString("text"),
+                                dataJsonObject.getString("bolderNum"),dataJsonObject.getString("time"));
 
                     }
 

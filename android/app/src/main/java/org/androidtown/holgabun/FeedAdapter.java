@@ -4,12 +4,19 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class FeedAdapter extends BaseAdapter {
@@ -42,7 +49,7 @@ public class FeedAdapter extends BaseAdapter {
 
             holder=new GridItem();
 
-            holder.feed_id_image = (ImageView)convertView.findViewById(R.id.login_img);
+
             holder.feed_id = (TextView)convertView.findViewById(R.id.bolder_id);
             holder.feed_image = (ImageView)convertView.findViewById(R.id.bolder_img);
             holder.feed_text = (TextView)convertView.findViewById(R.id.bolder_text);
@@ -58,8 +65,9 @@ public class FeedAdapter extends BaseAdapter {
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         FeedItem FeedItem = FeedItemList.get(position);
 
+
         // 아이템 내 각 위젯에 데이터 반영
-        holder.feed_id_image.setImageBitmap(FeedItem.getFeedIdImage());
+
         holder.feed_id.setText(FeedItem.getFeedId());
         holder.feed_image.setImageBitmap(FeedItem.getFeedImage());
         holder.feed_text.setText(FeedItem.getFeedText());
@@ -81,13 +89,15 @@ public class FeedAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Bitmap feed_id_image,String feed_id,Bitmap feed_image, String feed_text,String boldernum,String feedtime){
-        FeedItem ITEM=new FeedItem(feed_id_image,feed_id,feed_image,feed_text,boldernum,feedtime);
+    public void addItem(String feed_id,Bitmap feed_image, String feed_text,String boldernum,String feedtime){
+        FeedItem ITEM=new FeedItem(feed_id,feed_image,feed_text,boldernum,feedtime);
         FeedItemList.add(ITEM);
     }
 
+
+
     static class GridItem{
-        public ImageView feed_id_image;
+
         public TextView feed_id;
         public ImageView feed_image;
         public TextView feed_text;
@@ -95,3 +105,5 @@ public class FeedAdapter extends BaseAdapter {
 
     }
 }
+
+

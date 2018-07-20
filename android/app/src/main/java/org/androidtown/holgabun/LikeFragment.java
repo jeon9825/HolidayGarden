@@ -59,6 +59,7 @@ public class LikeFragment extends Fragment {
     SearchUserAdapter adapter;
     EditText editText;
     Button button;
+    ProgressDialog loading;
     String s1,s2,s3;
 
     InputMethodManager imm;
@@ -142,6 +143,8 @@ public class LikeFragment extends Fragment {
         return view;
     }
 
+
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -149,12 +152,25 @@ public class LikeFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (loading != null) {
+            loading.dismiss();
+            loading = null;
+        }
+    }
+
+
+
+
 
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
     }
 
     /**
@@ -174,7 +190,7 @@ public class LikeFragment extends Fragment {
     private void List(){
         class ListSaw extends AsyncTask<String,Void,String> {
 
-            ProgressDialog loading;
+
             RequestHandler rh = new RequestHandler();
 
             @Override
@@ -239,5 +255,6 @@ public class LikeFragment extends Fragment {
         ListSaw ui = new ListSaw();
         ui.execute("");
     }
+
 
 }

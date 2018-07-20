@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ViewUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     int check_si;
     int check_gu;
+    LinearLayout l;
     ArrayList<Garden> Garden = new ArrayList<>();
 
     org.androidtown.holgabun.GridAdapter adapter2;
     GridView gridView;
+
 
 
 
@@ -58,17 +62,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setTitle("Garden Information");
-        button=(Button)findViewById(R.id.home);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HttpConnection h=new HttpConnection();
-                h.execute("login","minuk","12","12,","hi","bye");
-            }
-        });
+
 
         gridView = (GridView)findViewById(R.id.grid);
         adapter2 = new GridAdapter(this, Garden);
+        l=(LinearLayout)findViewById(R.id.test);
 
 
 
@@ -109,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
         autoViewPager.setInterval(5000); // 페이지 넘어갈 시간 간격 설정
         autoViewPager.startAutoScroll(); //Auto Scroll 시작
 
+
+        
         spinner_si = (Spinner) findViewById(R.id.si);
         adapter = ArrayAdapter.createFromResource(this, R.array.si_do, android.R.layout.simple_spinner_dropdown_item);
         spinner_si.setAdapter(adapter);

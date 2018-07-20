@@ -67,8 +67,9 @@ public class ProfileFragment extends Fragment{
     ListView listView;
     FeedAdapter feedAdapter;
     String feed_id;
-    ArrayList<Bitmap> please;
+
     String url;
+    ProgressDialog loading;
     TextView t;
 
     ImageView img;
@@ -172,8 +173,9 @@ public class ProfileFragment extends Fragment{
     private void List(){
         class ListSaw extends AsyncTask<String,Void,String> {
 
-            ProgressDialog loading;
+
             RequestHandler rh = new RequestHandler();
+            FeedAdapter feedAdapter=new FeedAdapter();
 
             @Override
             protected void onPreExecute() {
@@ -188,34 +190,10 @@ public class ProfileFragment extends Fragment{
                     loading.dismiss();
                     loading = null;
                 }
-                Log.d("THIS",s);
+                Log.d("THIS", s);
 
-
-
-                try{
-                    JSONArray jsonArray = new JSONArray(s);
-
-                    FeedAdapter feedAdapter=new FeedAdapter();
-
-
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        // Array 에서 하나의 JSONObject 를 추출
-                        JSONObject dataJsonObject = jsonArray.getJSONObject(i);
-                        // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-
-                       feedAdapter.addItem(BitmapFactory.decodeResource(getResources(),R.drawable.icon),dataJsonObject.getString("id"),please.get(i),dataJsonObject.getString("text"),
-                               dataJsonObject.getString("bolderNum"),dataJsonObject.getString("time"));
-
-                    }
-                    listView.setAdapter(feedAdapter);
-
-
-                }catch(JSONException e){
-                    e.printStackTrace();
-                }
-
-
-                }
+                listView.setAdapter(feedAdapter);
+            }
 
             @Override
             protected String doInBackground(String... params) {
@@ -233,12 +211,14 @@ public class ProfileFragment extends Fragment{
                 try {
                     JSONArray j = new JSONArray(result);
 
-                    please=new ArrayList<Bitmap>();
+
                     for (int i = 0; i < j.length(); i++) {
 
+                        feedAdapter=new FeedAdapter();
                         // Array 에서 하나의 JSONObject 를 추출
                         JSONObject dataJsonObject = j.getJSONObject(i);
                         // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
+
                         URL url=new URL(dataJsonObject.getString("image").replace("\\",""));
 
                         HttpURLConnection conn=(HttpURLConnection)url.openConnection();
@@ -246,7 +226,8 @@ public class ProfileFragment extends Fragment{
                         conn.connect();
                         InputStream is=conn.getInputStream();
 
-                        please.add(BitmapFactory.decodeStream(is));
+                        feedAdapter.addItem(dataJsonObject.getString("id"),BitmapFactory.decodeStream(is),dataJsonObject.getString("text"),
+                                dataJsonObject.getString("bolderNum"),dataJsonObject.getString("time"));
 
 
                     }
@@ -257,11 +238,9 @@ public class ProfileFragment extends Fragment{
                 }catch(JSONException e)
                 {
                     e.printStackTrace();
-                }catch (MalformedURLException e)
-                {
+                } catch (MalformedURLException e) {
                     e.printStackTrace();
-                }catch(IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
                 return result;
@@ -281,6 +260,14 @@ public class ProfileFragment extends Fragment{
         }
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (loading != null) {
+            loading.dismiss();
+            loading = null;
+        }
+    }
 
     @Override
     public void onDetach() {
