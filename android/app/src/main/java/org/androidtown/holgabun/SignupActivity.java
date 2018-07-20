@@ -122,12 +122,16 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
+                Log.d("login",s);
                 loading.dismiss();
                if(s.equals("login success!"))
                {
                     Intent intent =new Intent(SignupActivity.this,LoginActivity.class);
                     startActivity(intent);
                     finish();
+               }
+               else {
+                   Toast.makeText(SignupActivity.this,"아이디나 닉네임이 동일한 유저가 존재합니다.",Toast.LENGTH_LONG).show();
                }
             }
 
