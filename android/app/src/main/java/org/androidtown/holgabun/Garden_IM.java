@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,6 +43,8 @@ public class Garden_IM extends NMapActivity {
     String name;
     TextView textView;
     ScrollView myScroll ;
+    Button tel;
+    Button request;
 
 
     @Override
@@ -71,6 +74,7 @@ public class Garden_IM extends NMapActivity {
         nMapResourceProvider = new NMapViewerResourceProvider(this);
         mapOverlayManager = new NMapOverlayManager(this, mMapView, nMapResourceProvider);
 
+        tel=findViewById(R.id.phone);
 
         new Thread(new Runnable() {
             @Override
@@ -83,6 +87,20 @@ public class Garden_IM extends NMapActivity {
                 });
             }
         }).start();
+        tel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "없습니다.", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        request=findViewById(R.id.request);
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "죄송합니다. 구매하실 수 없습니다.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
     private NMapView.OnMapViewTouchEventListener mapListener = new NMapView.OnMapViewTouchEventListener() {
         @Override
